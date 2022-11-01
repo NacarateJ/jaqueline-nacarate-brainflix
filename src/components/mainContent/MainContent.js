@@ -1,6 +1,6 @@
 import "./mainContent.scss";
 
-function MainContent() {
+const MainContent = () => {
     return (
         <main>HTML goes here</main>
     )

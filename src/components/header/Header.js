@@ -1,6 +1,6 @@
 import "./header.scss";
 
-function Header() {
+const Header = () => {
   return (
     <header className="header">
       Hello

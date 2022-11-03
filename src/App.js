@@ -5,7 +5,7 @@ import SideBar from "./components/side-bar/SideBar";
 // import { useState } from "react";
 
 const App = () => {
-// const [vidId, setVidId] = useState(84e96018-4022-434e-80)
+// const [video, setVideo] = useState(84e96018-4022-434e-80)
 
 // const [videos, setVideos] = useState();
 

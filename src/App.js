@@ -1,25 +1,32 @@
 import Header from "./components/header/Header";
-import Hero from "./components/hero/Hero";
-import MainContent from "./components/mainContent/MainContent";
+import HeroVideo from "./components/heroVideo/HeroVideo";
+import Comments from "./components/comments/Comments";
 import SideBar from "./components/side-bar/SideBar";
-// import { useState } from "react";
+import { useState } from "react";
+import getVideoDetails, { getVideos } from "./utils/utils.js";
 
 const App = () => {
-// const [video, setVideo] = useState(84e96018-4022-434e-80)
+  // Function to define current and default state of videos
+  const [vidId, setVidId] = useState("84e96018-4022-434e-80bf-000ce4cd12b8");
 
-// const [videos, setVideos] = useState();
+  // Function to get only the specified video so it doesnt show on side bar
+  // State will be passed as a prop to SideBar (component)
+  // SideBar (component) will render it (the prop-state-video) through HTML tags
+  const [videos, setVideos] = useState(getVideos(vidId));
+
+  const [videoDetails, setVideoDetails] = useState(getVideoDetails(vidId));
 
   return (
     <>
       <Header />
 
-      <Hero />
+      <HeroVideo video={videoDetails} />
 
-      <MainContent />
+      <Comments comments={videoDetails.comment}/>
 
-      <SideBar />
+      <SideBar videos={videos} />
     </>
   );
-}
+};
 
 export default App;

@@ -1,7 +1,174 @@
-@use "../../styles/partials/breakpoints";
-@use "../../styles/partials/colors";
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
 
+// Hero video for Mobile
+.hero {
+  &__video {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
 
-.hero__video {
-    width: 50%;
+  &__information {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &-caption {
+      color: $brain-flix-black;
+      padding-bottom: 1rem;
+      margin-bottom: 0;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      border-bottom: 1px solid $mercury;
+    }
+
+    &-wrapper {
+      padding: 1rem 0;
+      display: flex;
+      gap: 4rem;
+      border-bottom: 1px solid $mercury;
+    }
+
+    &-channel {
+      color: $brain-flix-black;
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: 700;
+    }
+
+    &-timestamp {
+      padding-top: 0.7rem;
+      font-size: 13px;
+      color: $silver;
+    }
+
+    &-right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-numbers {
+      color: $silver;
+      font-size: 13px;
+      padding-left: 0.5rem;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-icon {
+      width: 20px;
+    }
+
+    &-description {
+      color: $brain-flix-black;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+  }
+}
+
+// Hero video for Tablet
+@include medium {
+  .hero {
+    &__video-wrapper {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      background-color: $brain-flix-dark-black;
+      height: 100%;
+      width: 100%;
+    }
+
+    &__video {
+      width: 100%;
+    }
+
+    &__information {
+      padding-left: 2rem;
+      padding-right: 2rem;
+
+      &-caption {
+        padding-bottom: 1rem;
+        font-size: 33px;
+        line-height: 44px;
+        border-bottom: none;
+      }
+
+      &-wrapper {
+        gap: 16rem;
+        padding: 0;
+      }
+
+      &-left,
+      &-right {
+        display: flex;
+        flex-direction: row;
+      }
+
+      &-channel {
+        inline-size: 6rem;
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      &-timestamp {
+        align-self: center;
+        font-size: 14px;
+        padding-top: 0;
+        padding-left: 1rem;
+      }
+
+      &-numbers {
+        align-self: center;
+        font-size: 14px;
+        padding-left: 0.8rem;
+        padding-right: 3rem;
+      }
+
+      &-icon {
+        align-self: center;
+        width: 21px;
+      }
+
+      &-description {
+        font-size: 14.5px;
+        line-height: 22px;
+      }
+    }
+  }
+}
+
+// Hero video for Desktop
+@include large {
+  .hero {
+    &__video-wrapper {
+      padding-left: 11rem;
+      padding-right: 11rem;
+    }
+    &__video {
+      width: 100%;
+    }
+
+    &__information {
+      width: 72%;
+      padding-left: 6rem;
+
+      &-caption {
+        padding: 0;
+      }
+
+      &-description {
+        font-size: 16px;
+      }
+    }
+  }
 }

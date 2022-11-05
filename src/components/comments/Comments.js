@@ -4,7 +4,7 @@ import Image from "../../assets/images/Mohan-muruge.jpg";
 const Comments = ({ comments }) => {
   return (
     <section className="hero__comments-wrapper">
-      <p className="hero__comments-number"></p>
+      <h3>{comments.length} Comments</h3>
       <form autoComplete="off" className="hero__comments-form">
         <div>
           <img
@@ -38,8 +38,6 @@ const Comments = ({ comments }) => {
           </div>
         </div>
       </form>
-
-      <h2>{comments.length} Comments</h2>
 
       {comments.map((comment) => (
         <div className="hero__comments-fans-wrapper" key={comment.id}>

@@ -16,15 +16,21 @@ const App = () => {
 
   const [videoDetails, setVideoDetails] = useState(getVideoDetails(vidId));
 
+  const handleClick = (clickEvent, videoIdClickedOn) => {
+    setVidId(videoIdClickedOn);
+    setVideos(getVideos(videoIdClickedOn));
+    setVideoDetails(getVideoDetails(videoIdClickedOn));
+  };
+
   return (
     <>
       <Header />
 
       <HeroVideo video={videoDetails} />
 
-      <Comments comments={videoDetails.comment}/>
+      <Comments comments={videoDetails.comments} />
 
-      <SideBar videos={videos} />
+      <SideBar videos={videos} onClick={handleClick} />
     </>
   );
 };

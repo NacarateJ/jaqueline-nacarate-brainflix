@@ -1,2 +1,9 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
+
+.hero__comments-img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+}

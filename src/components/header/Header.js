@@ -18,7 +18,7 @@ const Header = () => {
 
       <nav className="header__navigation-right">
         <div className="header__navigation-right-wrapper">
-          <input className="header__search" placeholder="Search"></input>
+          <input className="header__search" type="search" placeholder="Search"></input>
           <div className="header__avatar-container">
             <img
               className="header__avatar"

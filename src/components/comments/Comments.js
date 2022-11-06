@@ -3,27 +3,27 @@ import Image from "../../assets/images/Mohan-muruge.jpg";
 
 const Comments = ({ comments }) => {
   return (
-    <section className="hero__comments-wrapper">
-      <h3>{comments.length} Comments</h3>
-      <form autoComplete="off" className="hero__comments-form">
+    <section className="comments">
+      <p className="comments__number">{comments.length} Comments</p>
+      <form autoComplete="off" className="comments__form">
         <div>
           <img
-            className="hero__comments-img"
+            className="comments__img"
             src={Image}
             alt="Mohan Muruge profile facing left"
           />
         </div>
 
-        <div className="hero__comments-form-wrapper">
-          <div className="hero__comments-form-comment">
-            <label className="hero__comments-form-label" htmlFor="comment">
+        <div className="comments__form-wrapper">
+          <div className="comments__form-comment">
+            <label className="comments__form-label" htmlFor="comments">
               JOIN THE CONVERSATION
             </label>
             <textarea
-              className="hero__comments-form-input hero__comments-form-input--active"
-              id="comment"
+              className="comments__form-input comments__form-input--active"
+              id="comments"
               type="text"
-              name="comment"
+              name="comments"
               rows="5"
               cols="30"
               placeholder="Add a new comment"
@@ -31,8 +31,8 @@ const Comments = ({ comments }) => {
             <small></small>
           </div>
 
-          <div className="hero__comments-button">
-            <button className="hero__comments-button-submit" type="submit">
+          <div className="comments__button-wrapper">
+            <button className="comments__button-submit" type="submit">
               COMMENT
             </button>
           </div>
@@ -40,17 +40,15 @@ const Comments = ({ comments }) => {
       </form>
 
       {comments.map((comment) => (
-        <div className="hero__comments-fans-wrapper" key={comment.id}>
-          <div className="hero__comments-fans">
-            <div className="hero__comments-avatar"></div>
-            <div className="hero__comments-info">
-              <div className="hero__comments-info-wrapper">
-                <p className="hero__comments-info-name">{comment.name}</p>
-                <p className="hero__comments-info-timestamp">
-                  {comment.timestamp}
-                </p>
+        <div className="comments__fans-wrapper" key={comment.id}>
+          <div className="comments__fans">
+            <div className="comments__avatar"></div>
+            <div className="comments__info">
+              <div className="comments__info-wrapper">
+                <p className="comments__info-name">{comment.name}</p>
+                <p className="comments__info-timestamp">{comment.timestamp}</p>
               </div>
-              <p className="hero__comments-info-text">{comment.comment}</p>
+              <p className="comments__info-text">{comment.comment}</p>
             </div>
           </div>
         </div>

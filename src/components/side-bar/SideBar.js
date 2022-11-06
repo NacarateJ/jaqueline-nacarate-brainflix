@@ -1,8 +1,6 @@
 import "./sideBar.scss";
 
 const SideBar = ({ videos, onClick }) => {
-  // let sideVideos = props.videos;
-  // let clickedVideos = props.onClick;
   return (
     <aside className="sidebar">
       <p className="sidebar__caption">NEXT VIDEO</p>

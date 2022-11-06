@@ -1,9 +1,176 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
 
-.hero__comments-img {
-  object-fit: cover;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+// Comments section for Mobile
+.comments {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  &__number {
+    color: $brain-flix-black;
+    margin: 1rem 0;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 700;
+  }
+
+  &__img {
+    margin-top: 1.7rem;
+    object-fit: cover;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+  }
+
+  &__form {
+    display: flex;
+    border-bottom: 1px solid $mercury;
+    padding-bottom: 1rem;
+
+    &-label {
+      color: $silver;
+    }
+
+    &-input {
+      background-color: $alabaster;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid $mercury;
+      border-radius: 4px;
+      outline: none;
+      margin-top: 4px;
+      margin-bottom: 1rem;
+      &:active {
+        border: 2px solid $brain-flix-blue;
+      }
+    }
+  }
+
+  ::placeholder {
+    color: $brain-flix-black;
+    font-family: "Avenir Next";
+  }
+
+  &__button-submit {
+    background: url(../../assets/icons/add_comment.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 1rem;
+    background-size: 1.5rem;
+    color: $white;
+    font-size: 1rem;
+    background-color: $brain-flix-blue;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    height: 3rem;
+    &:hover {
+      background-color: $brain-flix-dark-blue;
+    }
+  }
+
+  &__fans {
+    border-bottom: 1px solid $mercury;
+    display: flex;
+    gap: 1rem;
+    // padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__avatar {
+    background-color: $mercury;
+    margin-top: 1rem;
+    object-fit: cover;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    width: 100%;
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-name {
+      align-self: center;
+      color: $brain-flix-black;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    &-timestamp {
+      color: $silver;
+    }
+
+    &-text {
+      color: $brain-flix-black;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Comments section for Tablet
+@include medium {
+  .comments {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    &__number {
+      inline-size: 6rem;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    &__img {
+      margin-top: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &__form {
+      &-wrapper {
+        display: flex;
+        gap: 1.5rem;
+      }
+      &-input {
+        padding-right: 28rem;
+        height: 3rem;
+      }
+    }
+
+    ::placeholder {
+      inline-size: 8rem;
+    }
+
+    &__button-wrapper {
+      width: 100%;
+    }
+
+    &__button-submit {
+      margin-top: 1.5rem;
+      padding-left: 2rem;
+      width: 100%;
+    }
+
+    &__fans {
+      padding: 1rem 0 2rem 0;
+    }
+  }
+}
+
+// Comments section for Desktop
+@include large {
+  .comments {
+    padding-left: 6rem;
+    width: 72%;
+
+    &__form-input {
+      padding-right: 30rem;
+    }
+  }
 }

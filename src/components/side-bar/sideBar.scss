@@ -85,8 +85,11 @@
 }
 
 // Side bar for Desktop
-// @include large {
-//   .sidebar {
-
-//   }
-// }
+@include large {
+  .sidebar {
+    border-left: 1px solid $mercury;
+    position: absolute;
+    right: 183px;
+    bottom: 1px;
+  }
+}

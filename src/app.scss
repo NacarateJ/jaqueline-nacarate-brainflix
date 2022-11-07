@@ -1,5 +1,6 @@
 .app {
-&__container {
+    &__container {
+    position: relative;
     display: flex;
 }
 }

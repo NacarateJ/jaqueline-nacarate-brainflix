@@ -167,10 +167,24 @@
 @include large {
   .comments {
     padding-left: 6rem;
+    padding-right: 6rem;
     width: 65%;
 
-    &__form-input {
-      padding-right: 26rem;
+    &__form {
+      border-bottom: none;
+
+      &-wrapper {
+        padding-right: 1rem;
+      }
+      &-input {
+        padding-right: 22rem;
+      }
+    }
+
+    &__fans {
+      border-top: 1px solid $mercury;
+      border-bottom: none;
+      padding-right: 1rem;
     }
   }
 }

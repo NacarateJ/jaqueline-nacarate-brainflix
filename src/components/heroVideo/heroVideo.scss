@@ -152,6 +152,7 @@
 // Hero video for Desktop
 @include large {
   .hero {
+
     &__video-wrapper {
       padding-left: 11rem;
       padding-right: 11rem;
@@ -163,16 +164,18 @@
     &__information {
       width: 65%;
       padding-left: 6rem;
+      padding-right: 6rem;
 
       &-caption {
         padding: 0;
       }
 
       &-wrapper {
-        gap: 13.5rem;
+        gap: 8.5rem;
       }
 
       &-description {
+        padding-right: 1rem;
         font-size: 16px;
       }
     }

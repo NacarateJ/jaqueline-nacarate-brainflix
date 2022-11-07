@@ -48,13 +48,9 @@ const Comments = ({ comments }) => {
               <div className="comments__info-wrapper">
                 <p className="comments__info-name">{comment.name}</p>
                 <p className="comments__info-timestamp">
-                  {formatDistance(
-                    new Date(comment.timestamp),
-                    new Date(),
-                    {
-                      addSuffix: true,
-                    }
-                  )}
+                  {formatDistance(new Date(comment.timestamp), new Date(), {
+                    addSuffix: true,
+                  })}
                 </p>
               </div>
               <p className="comments__info-text">{comment.comment}</p>

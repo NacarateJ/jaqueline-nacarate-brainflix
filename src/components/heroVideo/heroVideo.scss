@@ -105,7 +105,7 @@
       }
 
       &-wrapper {
-        gap: 16rem;
+        gap: 13.5rem;
         padding: 0;
       }
 
@@ -122,7 +122,7 @@
       }
 
       &-timestamp {
-         inline-size: 8rem;
+        inline-size: 8rem;
         align-self: center;
         font-size: 14px;
         padding-top: 0;
@@ -152,7 +152,6 @@
 // Hero video for Desktop
 @include large {
   .hero {
-
     &__video-wrapper {
       padding-left: 11rem;
       padding-right: 11rem;

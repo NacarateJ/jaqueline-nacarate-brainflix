@@ -122,7 +122,7 @@
       }
 
       &-timestamp {
-        inline-size: 8rem;
+         inline-size: 8rem;
         align-self: center;
         font-size: 14px;
         padding-top: 0;
@@ -161,7 +161,7 @@
     }
 
     &__information {
-      width: 72%;
+      width: 65%;
       padding-left: 6rem;
 
       &-caption {
@@ -169,7 +169,7 @@
       }
 
       &-wrapper {
-        gap: 20rem;
+        gap: 13.5rem;
       }
 
       &-description {

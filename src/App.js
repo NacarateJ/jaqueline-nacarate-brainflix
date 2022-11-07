@@ -1,3 +1,4 @@
+import "./app.scss";
 import Header from "./components/header/Header";
 import HeroVideo from "./components/heroVideo/HeroVideo";
 import Comments from "./components/comments/Comments";
@@ -23,12 +24,14 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="app">
       <Header />
       <HeroVideo video={videoDetails} />
-      <Comments comments={videoDetails.comments} />
-      <SideBar videos={videos} onClick={handleClick} />
-    </>
+      <section className="app__container">
+        <Comments comments={videoDetails.comments} />
+        <SideBar videos={videos} onClick={handleClick} />
+      </section>
+    </div>
   );
 };
 

@@ -2,31 +2,91 @@
 @use "../../styles/partials/colors" as *;
 
 // Side bar for Mobile
-
 .sidebar {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem 1rem 1rem;
+
   &__caption {
     color: $silver;
   }
 
   &__thumbnails {
-    width: 200px;
-    height: 70px;
-    display: inline-block; /* makes it fit in like an <img> */
-    background-size: cover; /* or contain */
+    display: inline-block;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+
+    &-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
     &-img {
       background-color: $mercury;
       border-radius: 4px;
-      width: 100px;
-      height: 100%;
+      width: 120px;
+      height: 70px;
       object-fit: cover;
     }
+  }
+
+  &__text-wrapper {
+    position: relative;
+  }
+  &__title {
+    color: $brain-flix-black;
+    font-weight: 700;
+    font-size: 0.7rem;
+    line-height: 20px;
+    margin: 0;
+    max-width: 150px;
+    // display: -webkit-box !important;
+    // -webkit-line-clamp: 2;
+    // -weebkit-box-oriented: vertical;
+    //  overflow: hidden;
+    //   text-overflow: ellipsis;
+    // display: inline-block;
+    // word-break:break-word;
+    // overflow: hidden;
+    // white-space: normal;
+    // text-overflow: ellipsis;
+  }
+
+  &__channel {
+    color: $brain-flix-black;
+    font-size: 0.7rem;
+    position: absolute;
+    bottom: 4px;
+    margin: 0;
   }
 }
 
 // Side bar for Tablet
+@include medium {
+  .sidebar {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    &__caption {
+      margin: 2rem 0 2rem 0;
+    }
+
+    &__thumbnails {
+      &-wrapper {
+        margin-bottom: 1.5rem;
+      }
+      &-img {
+        width: 130px;
+        height: 75px;
+      }
+    }
+  }
+}
 
 // Side bar for Desktop
+// @include large {
+//   .sidebar {
+
+//   }
+// }

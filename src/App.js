@@ -25,11 +25,8 @@ const App = () => {
   return (
     <>
       <Header />
-
       <HeroVideo video={videoDetails} />
-
       <Comments comments={videoDetails.comments} />
-
       <SideBar videos={videos} onClick={handleClick} />
     </>
   );

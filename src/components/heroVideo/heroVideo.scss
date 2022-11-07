@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     width: 100%;
+    aspect-ratio: 16/9;
   }
 
   &__information {
@@ -115,12 +116,13 @@
       }
 
       &-channel {
-        inline-size: 6rem;
+        inline-size: 8rem;
         font-size: 14px;
         line-height: 22px;
       }
 
       &-timestamp {
+        inline-size: 8rem;
         align-self: center;
         font-size: 14px;
         padding-top: 0;

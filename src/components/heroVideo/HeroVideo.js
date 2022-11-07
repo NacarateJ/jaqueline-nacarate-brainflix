@@ -1,6 +1,7 @@
 import "./heroVideo.scss";
 import Views from "../../assets/icons/views.svg";
 import Likes from "../../assets/icons/likes.svg";
+import { formatDistance } from "date-fns";
 
 const HeroVideo = ({ video }) => {
   const {
@@ -32,7 +33,11 @@ const HeroVideo = ({ video }) => {
         <div className="hero__information-wrapper">
           <div className="hero__information-left">
             <p className="hero__information-channel"> By {channel}</p>
-            <p className="hero__information-timestamp">{timestamp}</p>
+            <p className="hero__information-timestamp">
+              {formatDistance(new Date(timestamp), new Date(), {
+                addSuffix: true,
+              })}
+            </p>
           </div>
 
           <div className="hero__information-right">

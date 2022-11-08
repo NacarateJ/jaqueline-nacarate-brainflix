@@ -2,8 +2,8 @@
 
 @include large {
   .app {
+    position: relative;
     &__container {
-      position: relative;
       display: flex;
     }
   }

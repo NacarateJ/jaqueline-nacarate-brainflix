@@ -12,70 +12,6 @@
     width: 100%;
     aspect-ratio: 16/9;
   }
-
-  &__information {
-    padding-left: 1rem;
-    padding-right: 1rem;
-
-    &-caption {
-      color: $brain-flix-black;
-      padding-bottom: 1rem;
-      margin-bottom: 0;
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 32px;
-      border-bottom: 1px solid $mercury;
-    }
-
-    &-wrapper {
-      padding: 1rem 0;
-      display: flex;
-      gap: 4rem;
-      border-bottom: 1px solid $mercury;
-    }
-
-    &-channel {
-      color: $brain-flix-black;
-      font-size: 13px;
-      line-height: 18px;
-      font-weight: 700;
-    }
-
-    &-timestamp {
-      padding-top: 0.7rem;
-      font-size: 13px;
-      color: $silver;
-    }
-
-    &-right {
-      display: flex;
-      flex-direction: column;
-    }
-
-    &-container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    &-numbers {
-      color: $silver;
-      font-size: 13px;
-      padding-left: 0.5rem;
-      display: flex;
-      flex-direction: row;
-    }
-
-    &-icon {
-      width: 20px;
-    }
-
-    &-description {
-      color: $brain-flix-black;
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 18px;
-    }
-  }
 }
 
 // Hero video for Tablet
@@ -92,60 +28,6 @@
     &__video {
       width: 100%;
     }
-
-    &__information {
-      padding-left: 2rem;
-      padding-right: 2rem;
-
-      &-caption {
-        padding-bottom: 1rem;
-        font-size: 33px;
-        line-height: 44px;
-        border-bottom: none;
-      }
-
-      &-wrapper {
-        gap: 13.5rem;
-        padding: 0;
-      }
-
-      &-left,
-      &-right {
-        display: flex;
-        flex-direction: row;
-      }
-
-      &-channel {
-        inline-size: 8rem;
-        font-size: 14px;
-        line-height: 22px;
-      }
-
-      &-timestamp {
-        inline-size: 8rem;
-        align-self: center;
-        font-size: 14px;
-        padding-top: 0;
-        padding-left: 1rem;
-      }
-
-      &-numbers {
-        align-self: center;
-        font-size: 14px;
-        padding-left: 0.8rem;
-        padding-right: 3rem;
-      }
-
-      &-icon {
-        align-self: center;
-        width: 21px;
-      }
-
-      &-description {
-        font-size: 14.5px;
-        line-height: 22px;
-      }
-    }
   }
 }
 
@@ -158,25 +40,6 @@
     }
     &__video {
       width: 100%;
-    }
-
-    &__information {
-      width: 65%;
-      padding-left: 6rem;
-      padding-right: 6rem;
-
-      &-caption {
-        padding: 0;
-      }
-
-      &-wrapper {
-        gap: 8.5rem;
-      }
-
-      &-description {
-        padding-right: 1rem;
-        font-size: 16px;
-      }
     }
   }
 }

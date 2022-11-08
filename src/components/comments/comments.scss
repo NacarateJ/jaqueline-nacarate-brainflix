@@ -1,7 +1,75 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
 
-// Comments section for Mobile
+//Heero information section for Mobile
+.hero {
+  &__information {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &-caption {
+      color: $brain-flix-black;
+      padding-bottom: 1rem;
+      margin-bottom: 0;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      border-bottom: 1px solid $mercury;
+    }
+
+    &-wrapper {
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 4rem;
+      border-bottom: 1px solid $mercury;
+    }
+
+    &-channel {
+      color: $brain-flix-black;
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: 700;
+    }
+
+    &-timestamp {
+      font-size: 13px;
+      color: $silver;
+    }
+
+    &-right,
+    &-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-numbers {
+      color: $silver;
+      font-size: 13px;
+      padding-left: 0.5rem;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-icon {
+      width: 20px;
+    }
+
+    &-description {
+      color: $brain-flix-black;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+  }
+}
+
+// Comments for Mobile
 .comments {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -114,8 +182,65 @@
   }
 }
 
-// Comments section for Tablet
+// Hero information for Tablet
 @include medium {
+  .hero {
+    &__information {
+      padding-left: 2rem;
+      padding-right: 2rem;
+
+      &-caption {
+        padding-bottom: 1rem;
+        font-size: 33px;
+        line-height: 44px;
+        border-bottom: none;
+      }
+
+      &-wrapper {
+        padding: 0;
+      }
+
+      &-left,
+      &-right {
+        flex-direction: row;
+      }
+
+      &-right {
+        gap: 2rem;
+      }
+
+      &-channel {
+        inline-size: 8rem;
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      &-timestamp {
+        inline-size: 8rem;
+        align-self: center;
+        font-size: 14px;
+        padding-top: 0;
+        // padding-left: 1rem;
+      }
+
+      &-numbers {
+        align-self: center;
+        font-size: 14px;
+      }
+
+      &-icon {
+        align-self: center;
+        width: 21px;
+      }
+
+      &-description {
+        font-size: 14.5px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  // Comments section for Tablet
   .comments {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -163,12 +288,42 @@
   }
 }
 
-// Comments section for Desktop
+// Hero information for Desktop
 @include large {
+  .hero {
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__information {
+      padding-left: 6rem;
+      padding-right: 0;
+
+      &-caption {
+        padding: 0;
+      }
+
+      &-wrapper {
+        padding-right: 1rem;
+        display: flex;
+      }
+
+      &-right {
+        justify-content: space-between;
+      }
+
+      &-description {
+        padding-right: 1rem;
+        font-size: 16px;
+      }
+    }
+  }
+
+  // Comments section for Desktop
   .comments {
     padding-left: 6rem;
-    padding-right: 6rem;
-    width: 65%;
+    padding-right: 0;
 
     &__form {
       border-bottom: none;
@@ -176,8 +331,9 @@
       &-wrapper {
         padding-right: 1rem;
       }
+
       &-input {
-        padding-right: 22rem;
+        padding-right: 33rem;
       }
     }
 

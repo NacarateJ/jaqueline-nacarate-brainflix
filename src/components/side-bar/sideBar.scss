@@ -87,9 +87,8 @@
 // Side bar for Desktop
 @include large {
   .sidebar {
+    padding-right: 6rem;
+    padding-left: 1.5rem;
     border-left: 1px solid $mercury;
-    position: absolute;
-    right: 183px;
-    bottom: 1px;
   }
 }

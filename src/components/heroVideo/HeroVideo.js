@@ -1,6 +1,4 @@
 import "./heroVideo.scss";
-import Views from "../../assets/icons/views.svg";
-import Likes from "../../assets/icons/likes.svg";
 import { formatDistance } from "date-fns";
 
 const HeroVideo = ({ video }) => {
@@ -27,7 +25,7 @@ const HeroVideo = ({ video }) => {
         ></video>
       </section>
 
-      <section className="hero__information">
+      {/* <section className="hero__information">
         <h1 className="hero__information-caption">{title}</h1>
 
         <div className="hero__information-wrapper">
@@ -64,7 +62,7 @@ const HeroVideo = ({ video }) => {
         <div className="hero__information-description">
           <p>{description}</p>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };

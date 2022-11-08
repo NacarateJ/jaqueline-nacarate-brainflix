@@ -28,7 +28,7 @@ const App = () => {
       <Header />
       <HeroVideo video={videoDetails} />
       <section className="app__container">
-        <Comments comments={videoDetails.comments} />
+        <Comments video={videoDetails} />
         <SideBar videos={videos} onClick={handleClick} />
       </section>
     </div>

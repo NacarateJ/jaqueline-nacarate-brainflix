@@ -1,6 +1,6 @@
 import "./sideBar.scss";
 
-const SideBar = ({ videos, onClick }) => {
+const SideBar = ({ videos }) => {
   return (
     <aside className="sidebar">
       <p className="sidebar__caption">NEXT VIDEOS</p>
@@ -11,7 +11,7 @@ const SideBar = ({ videos, onClick }) => {
               className="sidebar__thumbnails-img"
               src={video.image}
               alt="#"
-              onClick={(clickEvent) => onClick(clickEvent, video.id)}
+              // onClick={(clickEvent) => onClick(clickEvent, video.id)}
             ></img>
           </div>
           <div className="sidebar__text-wrapper">

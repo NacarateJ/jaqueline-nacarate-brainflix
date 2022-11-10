@@ -3,20 +3,43 @@ import Views from "../../assets/icons/views.svg";
 import Likes from "../../assets/icons/likes.svg";
 import Image from "../../assets/images/Mohan-muruge.jpg";
 import { formatDistance } from "date-fns";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+const mainVideo = `https://project-2-api.herokuapp.com/videos/84e96018-4022-434e-80bf-000ce4cd12b8?api_key=${process.env.REACT_APP_API_KEY}`;
 
 const Comments = ({ video }) => {
+  const [videoDetails, setVideoDetails] = useState({});
+  const { videoId } = useParams();
+  const { title, channel, description, views, likes, timestamp, comments } =
+    videoDetails;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get(mainVideo);
+        // console.log(data);
+        setVideoDetails(data);
+      } catch (error) {
+        console.log("Error", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="hero__container">
       <section className="hero__information">
-        <h1 className="hero__information-caption">{video.title}</h1>
+        <h1 className="hero__information-caption">{title}</h1>
 
         <div className="hero__information-wrapper">
           <div className="hero__information-left">
-            <p className="hero__information-channel"> By {video.channel}</p>
-            <p className="hero__information-timestamp">
-              {formatDistance(new Date(video.timestamp), new Date(), {
+            <p className="hero__information-channel">{channel}</p>
+            <p className="hero__information-timestamp">{timestamp}
+              {/* {formatDistance(new Date(timestamp), new Date(), {
                 addSuffix: true,
-              })}
+              })} */}
             </p>
           </div>
 
@@ -27,7 +50,7 @@ const Comments = ({ video }) => {
                 src={Views}
                 alt="gray eye icon"
               ></img>
-              <p className="hero__information-numbers">{video.views}</p>
+              <p className="hero__information-numbers">{views}</p>
             </div>
 
             <div className="hero__information-container">
@@ -36,18 +59,18 @@ const Comments = ({ video }) => {
                 src={Likes}
                 alt="gray heart icon"
               ></img>
-              <p className="hero__information-numbers">{video.likes}</p>
+              <p className="hero__information-numbers">{likes}</p>
             </div>
           </div>
         </div>
 
         <div className="hero__information-description">
-          <p>{video.description}</p>
+          <p>{description}</p>
         </div>
       </section>
 
       <section className="comments">
-        <p className="comments__number">{video.comments.length} Comments</p>
+        <p className="comments__number">{comments?.length} Comments</p>
         <form autoComplete="off" className="comments__form">
           <div>
             <img
@@ -82,20 +105,20 @@ const Comments = ({ video }) => {
           </div>
         </form>
 
-        {video.comments.map((comment) => (
-          <div className="comments__fans-wrapper" key={comment.id}>
+        {comments?.map((comment) => (
+          <div className="comments__fans-wrapper" key={comment?.id}>
             <div className="comments__fans">
               <div className="comments__avatar"></div>
               <div className="comments__info">
                 <div className="comments__info-wrapper">
-                  <p className="comments__info-name">{comment.name}</p>
+                  <p className="comments__info-name">{comment?.name}</p>
                   <p className="comments__info-timestamp">
-                    {formatDistance(new Date(comment.timestamp), new Date(), {
+                    {formatDistance(new Date(comment?.timestamp), new Date(), {
                       addSuffix: true,
                     })}
                   </p>
                 </div>
-                <p className="comments__info-text">{comment.comment}</p>
+                <p className="comments__info-text">{comment?.comment}</p>
               </div>
             </div>
           </div>

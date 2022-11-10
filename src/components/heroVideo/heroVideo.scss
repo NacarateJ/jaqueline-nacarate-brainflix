@@ -26,6 +26,7 @@
     }
 
     &__video {
+      height: 62vh;
       width: 100%;
     }
   }
@@ -35,8 +36,8 @@
 @include large {
   .hero {
     &__video-wrapper {
-      padding-left: 11rem;
-      padding-right: 11rem;
+      padding-left: 13rem;
+      padding-right: 13rem;
     }
     &__video {
       width: 100%;

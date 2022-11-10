@@ -1,9 +1,9 @@
 import "./header.scss";
+import React from "react";
 import Logo from "../../assets/logo/BrainFlix.svg";
 import Image from "../../assets/images/Mohan-muruge.jpg";
 
 const Header = () => {
-  // console.log(props);
   return (
     <header className="header">
       <div className="header__navigation-left">

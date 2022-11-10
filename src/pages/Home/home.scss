@@ -1,0 +1,10 @@
+@use "../../styles/partials/breakpoints" as *;
+
+@include large {
+  .app {
+    position: relative;
+    &__container {
+      display: flex;
+    }
+  }
+}

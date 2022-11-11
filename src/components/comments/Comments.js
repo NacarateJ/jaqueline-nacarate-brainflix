@@ -3,30 +3,11 @@ import Views from "../../assets/icons/views.svg";
 import Likes from "../../assets/icons/likes.svg";
 import Image from "../../assets/images/Mohan-muruge.jpg";
 import { formatDistance } from "date-fns";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
-const mainVideo = `https://project-2-api.herokuapp.com/videos/84e96018-4022-434e-80bf-000ce4cd12b8?api_key=${process.env.REACT_APP_API_KEY}`;
 
 const Comments = ({ video }) => {
-  const [videoDetails, setVideoDetails] = useState({});
-  const { videoId } = useParams();
   const { title, channel, description, views, likes, timestamp, comments } =
-    videoDetails;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(mainVideo);
-        // console.log(data);
-        setVideoDetails(data);
-      } catch (error) {
-        console.log("Error", error);
-      }
-    };
-    fetchData();
-  }, []);
+    video;
 
   return (
     <div className="hero__container">

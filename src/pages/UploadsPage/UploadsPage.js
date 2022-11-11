@@ -1,24 +1,20 @@
-import "./uploads.scss";
+import "./uploadsPage.scss";
 import "../../Components/header/Header";
-import Header from "../../Components/header/Header";
 import Image from "../../assets/images/Upload-video-preview.jpg";
 
-const Uploads = () => {
+const UploadsPage = () => {
   return (
     <>
-      <Header />
-
       <section className="upload">
         <div className="upload__title">Upload Video</div>
         <div className="upload__wrapper">
           <div className="video__wrapper">
             <p className="video__title">VIDEO THUMBNAIL</p>
-            <video
+            <img
               className="upload__video"
               src={Image}
-              poster="#"
-              controls
-            ></video>
+             alt="View of a blue bike and it's speedometer from the top by the rider"
+            ></img>
           </div>
 
           <form autoComplete="off" className="form__wraper">
@@ -53,12 +49,12 @@ const Uploads = () => {
             </div>
 
             <div className="button">
-              <div class="button__Wrapper">
+              <div className="button__Wrapper">
                 <button className="button__publish" type="file">
                   PUBLISH
                 </button>
               </div>
-              <div class="button__Wrapper">
+              <div className="button__Wrapper">
                 <button className="button__cancel" type="button">
                   CANCEL
                 </button>
@@ -71,4 +67,4 @@ const Uploads = () => {
   );
 };
 
-export default Uploads;
+export default UploadsPage;

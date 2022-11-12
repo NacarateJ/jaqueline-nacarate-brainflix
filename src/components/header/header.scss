@@ -18,20 +18,25 @@ input[type="search"]::-webkit-search-results-decoration {
   text-align: center;
   flex-direction: column;
 
-  &__company-logo {
+  &__company-logo-wrapper {
     text-align: center;
     padding-bottom: 1rem;
-    width: 60%;
+    width: 100%;
   }
 
-  &__navigation-right {
-    position: relative;
+  &__company-logo {
+    min-height: 30px;
+  }
+
+  &__navigation {
+    &-right-wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
   }
 
   &__avatar {
-    position: absolute;
-    right: 0;
-    top: 0;
     object-fit: cover;
     border-radius: 50%;
     width: 3rem;
@@ -44,9 +49,8 @@ input[type="search"]::-webkit-search-results-decoration {
     background-position-y: center;
     background-position-x: 1rem;
     background-size: 1rem;
-    width: 78%;
+    width: 100%;
     height: 3rem;
-    margin-right: 4rem;
     border-radius: 4px;
     outline: none;
     border: 1px solid $mercury;
@@ -65,6 +69,7 @@ input[type="search"]::-webkit-search-results-decoration {
     background-size: 1.5rem;
     color: $white;
     font-size: 1rem;
+    font-family: "Avenir Next";
     background-color: $brain-flix-blue;
     border: none;
     border-radius: 4px;
@@ -80,36 +85,49 @@ input[type="search"]::-webkit-search-results-decoration {
 // Header for Tablet
 @include medium {
   .header {
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     flex-direction: row;
     justify-content: space-between;
 
-    &__navigation-right {
-      width: 70%;
-      display: flex;
+    &__navigation {
+      &-right {
+        width: 70%;
+        display: flex;
+        position: relative;
+      }
     }
 
     &__avatar {
+      position: absolute;
+      right: 0;
       top: 0;
-      width: 3.1rem;
-      height: 3.1rem;
+      width: 2.5rem;
+      height: 2.5rem;
     }
 
-    &__company-logo {
-      padding-top: 0.6rem;
+    &__company-logo-wrapper {
       padding-bottom: 0;
-      width: 130%;
+      text-align: left;
+      align-self: center;
+      width: 20%;
+    }
+    
+    &__company-logo {
+      padding-top: 0.4rem;
+      min-height: 25px;
     }
 
     &__search {
-      width: 90%;
-      height: 50px;
+      padding: 0 5.5rem;
+      // margin-right: 1rem;
+      // width: 100%;
+      height: 2.5rem;
     }
 
     &__button {
       background-position-x: 0.5rem;
-      width: 35%;
-      height: 50px;
+      width: 9.375rem;
+      height: 2.5rem;
       margin-top: 0;
       // margin-left: 2rem;
     }
@@ -122,29 +140,44 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 1rem 6rem;
 
     &__navigation-right {
-      width: 50%;
+      width: 47%;
     }
 
-    &__avatar {
-      width: 2.6rem;
-      height: 2.6rem;
-    }
+    //   &__navigation {
+    //   &-right {
+    //     // width: 70%;
+    //     // display: flex;
+    //     // flex-direction: row;
+    //     // position: relative;
+    //   }
+    // }
 
-    &__company-logo {
-      padding-top: 0.5rem;
-      width: 90%;
-    }
+    // &__avatar {
+    //   right: 0;
+    //   width: 2.6rem;
+    //   height: 2.6rem;
+    // }
 
-    &__search {
-      width: 100%;
-      margin-right: 5rem;
-      height: 40px;
-    }
+    // &__company-logo {
+    //   padding-top: 0.5rem;
+    //   width: 90%;
+    // }
 
-    &__button {
-      margin-left: 1rem;
-      width: 34%;
-      height: 40px;
-    }
+    // &__company-logo {
+    //   padding-top: 0.4rem;
+    //   min-height: 25px;
+    // }
+
+    // &__search {
+    //   width: 100%;
+    //   // margin-right: 5rem;
+    //   height: 40px;
+    // }
+
+    // &__button {
+    //   // margin-left: 1rem;
+    //   width: 9.375rem;
+    //   // height: 40px;
+    // }
   }
 }

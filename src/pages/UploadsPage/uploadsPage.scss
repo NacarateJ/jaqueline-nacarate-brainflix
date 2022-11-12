@@ -1,2 +1,180 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
+
+// UploadPage for Mobile
+.upload {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  &__title {
+    color: $brain-flix-black;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    border-top: 1px solid $mercury;
+    margin: 0 -1rem;
+    padding: 1.5rem 0 1.5rem 1rem;
+  }
+
+  .video {
+    &__title {
+      color: $silver;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    &__poster {
+      background-color: $mercury;
+      border-radius: 4px;
+      width: 100%;
+      object-fit: cover;
+
+      &-wrapper {
+        padding-bottom: 1rem;
+      }
+    }
+  }
+
+  .form {
+    padding-bottom: 1rem;
+
+    &__video,
+    &__description {
+      &-label {
+        color: $silver;
+      }
+    }
+
+    &__video,
+    &__description {
+      &-input {
+        background-color: $alabaster;
+        width: 100%;
+        padding: 12px;
+        border: 1px solid $mercury;
+        border-radius: 4px;
+        outline: none;
+        margin-top: 4px;
+        margin-bottom: 1rem;
+        &:active {
+          border: 2px solid $brain-flix-blue;
+        }
+      }
+      ::placeholder {
+        color: $brain-flix-black;
+        font-family: "Avenir Next";
+      }
+    }
+  }
+
+  .button {
+    &__publish {
+      background: url(../../assets/icons/publish.svg);
+      background-repeat: no-repeat;
+      background-position-y: center;
+      background-position-x: 1rem;
+      background-size: 1.5rem;
+      color: $white;
+      font-size: 1rem;
+      font-family: "Avenir Next";
+      background-color: $brain-flix-blue;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      height: 3rem;
+      &:hover {
+        background-color: $brain-flix-dark-blue;
+      }
+    }
+
+    &__cancel {
+      color: $brain-flix-blue;
+      font-size: 1rem;
+      font-family: "Avenir Next";
+      background-color: $white;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      height: 3rem;
+      margin: 2rem 0;
+    }
+  }
+}
+
+// UploadPage for Tablet
+@include medium {
+  .upload {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    &__title {
+      margin: 0 -2rem;
+      padding-left: 2rem;
+    }
+
+    &__wrapper {
+      border-bottom: 1px solid $mercury;
+      border-top: 1px solid $mercury;
+    }
+
+    .video {
+      &__title {
+        margin-top: 1.5rem;
+      }
+
+      &__poster {
+        width: 50%;
+      }
+    }
+
+    .form {
+      padding-bottom: 0.5rem;
+    }
+
+    .button {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+
+      &__wrapper-publish {
+        order: 2;
+      }
+
+      &__publish,
+      &__cancel {
+        min-width: 9.375rem;
+        height: 2.5rem;
+        margin-top: 1.5rem;
+      }
+      &__publish {
+        background-position-x: 0.5rem;
+      }
+    }
+  }
+}
+
+// UploadPage for Desktop
+@include large {
+  .upload {
+    padding-left: 6rem;
+    padding-right: 6rem;
+
+    &__title {
+      margin: 0 -6rem;
+      padding-left: 6rem;
+    }
+
+    .video {
+      width: 30%;
+    }
+
+    .form {
+      padding-top: 1.5rem;
+      width: 70%;
+    }
+
+    &__wrapper {
+      display: flex;
+      // justify-content: space-between;
+    }
+  }
+}

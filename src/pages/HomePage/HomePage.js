@@ -1,7 +1,7 @@
 import "./homePage.scss";
-import HeroVideo from "../../Components/heroVideo/HeroVideo";
-import Comments from "../../Components/comments/Comments";
-import SideBar from "../../Components/side-bar/SideBar";
+import HeroVideo from "../../components/heroVideo/HeroVideo";
+import Comments from "../../components/comments/Comments";
+import SideBar from "../../components/side-bar/SideBar";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,18 +15,28 @@ const HomePage = () => {
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     const videoId = params.videoId;
+
     const fetchData = async () => {
       try {
         const { data } = await axios.get(sideBarVideos);
         // console.log(data);
-        const videos = data.filter(
-          (video) =>
-            //  console.log(video.id);
-            video.id !== videoId
-        );
+        if (videoId) {
+          const videos = data.filter(
+            (video) =>
+              //  console.log(video.id);
+              video.id !== videoId
+          );
+          setVideos(videos);
+        } else {
+          const videos = data.filter(
+            (video) =>
+              //  console.log(video.id);
+              video.id !== "84e96018-4022-434e-80bf-000ce4cd12b8"
+          );
+          setVideos(videos);
+        }
 
         // console.log(data);
-        setVideos(videos);
         // console.log(videos);
       } catch (error) {
         console.log("Error", error);
@@ -42,23 +52,29 @@ const HomePage = () => {
   useEffect(() => {
     // console.log(params.videoId);
     if (params.videoId) {
+      const videoId = params.videoId;
       setVideoId(params.videoId);
-    }
-    else {
-      setVideoId ("84e96018-4022-434e-80bf-000ce4cd12b8");
+      urlVideoId(videoId);
+    } else {
+      const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
+      setVideoId(defaultVideoId);
+      urlVideoId(defaultVideoId);
     }
 
-    const mainVideo = `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=${process.env.REACT_APP_API_KEY}`;
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(mainVideo);
-        // console.log(data);
-        setVideoDetails(data);
-      } catch (error) {
-        console.log("Error", error);
-      }
-    };
-    fetchData();
+    function urlVideoId(videoId) {
+      // const videoId = id;
+      const mainVideo = `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=${process.env.REACT_APP_API_KEY}`;
+      const fetchData = async () => {
+        try {
+          const { data } = await axios.get(mainVideo);
+          // console.log(data);
+          setVideoDetails(data);
+        } catch (error) {
+          console.log("Error", error);
+        }
+      };
+      fetchData();
+    }
   }, [params.videoId, videoId]);
 
   return (

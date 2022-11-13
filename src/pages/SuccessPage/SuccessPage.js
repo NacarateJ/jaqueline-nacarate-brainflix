@@ -8,10 +8,14 @@ const  SuccessPage = () => {
     return (
       <div className="wrapper__success">
         <h2 className="text__success">Upload Successful!</h2>
-          <Link to="/">
-            <button className="button__ok" type="button">
-              OK</button>
-          </Link>
+        <div className="checkmark__wrapper">
+          <span className="checkmark"></span>
+        </div>
+        <Link to="/">
+          <button className="button__ok" type="button">
+            OK
+          </button>
+        </Link>
       </div>
     );
 }

@@ -264,7 +264,7 @@
         gap: 1.5rem;
       }
       &-input {
-        padding-right: 28rem;
+        // padding-right: 28rem;
         height: 3rem;
       }
     }
@@ -274,13 +274,13 @@
     }
 
     &__button-wrapper {
-      width: 100%;
+      min-width: 9.375rem;
     }
 
     &__button-submit {
       margin-top: 1.5rem;
       padding-left: 2rem;
-      width: 100%;
+      min-width: 9.375rem;
     }
 
     &__fans {
@@ -328,14 +328,17 @@
 
     &__form {
       border-bottom: none;
+      // &-comment {
+      //   width: 100%;
+      // }
 
-      &-wrapper {
-        padding-right: 1rem;
-      }
+      // &-wrapper {
+      //   // padding-right: 1rem;
+      // }
 
-      &-input {
-        padding-right: 33rem;
-      }
+      // &-input {
+      //   // width: 70%;
+      // }
     }
 
     &__fans {

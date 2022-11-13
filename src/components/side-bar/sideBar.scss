@@ -18,15 +18,15 @@
     &-wrapper {
       display: flex;
       justify-content: flex-start;
-      gap: 1rem;
+      gap: 0.9rem;
       margin-bottom: 0.5rem;
     }
 
     &-img {
       background-color: $mercury;
-      border-radius: 4px;
-      width: 120px;
-      height: 70px;
+      border-radius: 0.25rem;
+      width: 7.5rem;
+      height: 4.375rem;
       object-fit: cover;
     }
   }
@@ -37,27 +37,18 @@
   &__title {
     color: $brain-flix-black;
     font-weight: 700;
-    font-size: 0.7rem;
-    line-height: 20px;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
     margin: 0;
-    max-width: 150px;
-    // display: -webkit-box !important;
-    // -webkit-line-clamp: 2;
-    // -weebkit-box-oriented: vertical;
-    //  overflow: hidden;
-    //   text-overflow: ellipsis;
-    // display: inline-block;
-    // word-break:break-word;
-    // overflow: hidden;
-    // white-space: normal;
-    // text-overflow: ellipsis;
+    inline-size: 15rem;
+    max-width: 9.8rem;
   }
 
   &__channel {
     color: $brain-flix-black;
-    font-size: 0.7rem;
+    font-size: 0.8125rem;
     position: absolute;
-    bottom: 4px;
+    bottom: 0.25rem;
     margin: 0;
   }
 }
@@ -65,7 +56,7 @@
 // Side bar for Tablet
 @include medium {
   .sidebar {
-    max-width: 23.313rem;
+    // max-width: 23.313rem;
     padding-left: 2rem;
     padding-right: 2rem;
 
@@ -78,8 +69,8 @@
         margin-bottom: 1.5rem;
       }
       &-img {
-        width: 130px;
-        height: 75px;
+        width: 8.125rem;
+        height: 4.6875rem;
       }
     }
   }

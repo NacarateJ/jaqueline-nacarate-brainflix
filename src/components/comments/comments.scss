@@ -1,7 +1,7 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
 
-//Heero information section for Mobile
+//Hero information section for Mobile
 .hero {
   &__information {
     padding-left: 1rem;
@@ -12,8 +12,8 @@
       padding-bottom: 1rem;
       margin-bottom: 0;
       font-weight: 700;
-      font-size: 24px;
-      line-height: 32px;
+      font-size: 1.5rem;
+      line-height: 2rem;
       border-bottom: 1px solid $mercury;
     }
 
@@ -27,13 +27,13 @@
 
     &-channel {
       color: $brain-flix-black;
-      font-size: 13px;
-      line-height: 18px;
+      font-size: 0.8125rem;
+      line-height: 1.125rem;
       font-weight: 700;
     }
 
     &-timestamp {
-      font-size: 13px;
+      font-size: 0.8125rem;
       color: $silver;
     }
 
@@ -50,21 +50,21 @@
 
     &-numbers {
       color: $silver;
-      font-size: 13px;
+      font-size: 0.8125rem;
       padding-left: 0.5rem;
       display: flex;
       flex-direction: row;
     }
 
     &-icon {
-      width: 20px;
+      width: 1.25rem;
     }
 
     &-description {
       color: $brain-flix-black;
-      font-size: 13px;
+      font-size: 0.8125rem;
       font-weight: 400;
-      line-height: 18px;
+      line-height: 1.125rem;
     }
   }
 }
@@ -77,8 +77,8 @@
   &__number {
     color: $brain-flix-black;
     margin: 1rem 0;
-    font-size: 13px;
-    line-height: 18px;
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
     font-weight: 700;
   }
 
@@ -96,18 +96,24 @@
     border-bottom: 1px solid $mercury;
     padding-bottom: 1rem;
 
+    &-wrapper {
+      width: 100%;
+    }
+
     &-label {
       color: $silver;
+      font-size: .75rem;
     }
 
     &-input {
       background-color: $alabaster;
       width: 100%;
-      padding: 12px;
+      padding: 0.75rem;
       border: 1px solid $mercury;
-      border-radius: 4px;
+      border-radius: 0.25rem;
+      resize: none;
       outline: none;
-      margin-top: 4px;
+      margin-top: 0.25rem;
       margin-bottom: 1rem;
       &:active {
         border: 2px solid $brain-flix-blue;
@@ -127,10 +133,12 @@
     background-position-x: 1rem;
     background-size: 1.5rem;
     color: $white;
-    font-size: 1rem;
+    font-size: .75rem;
+    font-family: "Avenir Next";
+    font-size: 0.75rem;
     background-color: $brain-flix-blue;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     width: 100%;
     height: 3rem;
     &:hover {
@@ -141,8 +149,6 @@
   &__fans {
     border-bottom: 1px solid $mercury;
     display: flex;
-    gap: 1rem;
-    // padding-top: 1rem;
     padding-bottom: 1rem;
   }
 
@@ -191,8 +197,9 @@
 
       &-caption {
         padding-bottom: 1rem;
-        font-size: 33px;
-        line-height: 44px;
+        margin-top: 1.5rem;
+        font-size: 2.0625rem;
+        line-height: 2.75rem;
         border-bottom: none;
       }
 
@@ -211,31 +218,30 @@
 
       &-channel {
         inline-size: 8rem;
-        font-size: 14px;
-        line-height: 22px;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
       }
 
       &-timestamp {
         inline-size: 8rem;
         align-self: center;
-        font-size: 14px;
+        font-size: 0.875rem;
         padding-top: 0;
-        // padding-left: 1rem;
       }
 
       &-numbers {
         align-self: center;
-        font-size: 14px;
+        font-size: 0.875rem;
       }
 
       &-icon {
         align-self: center;
-        width: 21px;
+        width: 1.3125rem;
       }
 
       &-description {
-        font-size: 14.5px;
-        line-height: 22px;
+        font-size: 0.9063rem;
+        line-height: 1.375rem;
       }
     }
   }
@@ -247,39 +253,41 @@
 
     &__number {
       inline-size: 6rem;
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
     }
 
     &__img {
       margin-top: 1.5rem;
-      width: 3rem;
-      height: 3rem;
+      width: 2.5rem;
+      height: 2.5rem;
     }
 
     &__form {
+      width: 100%;
+      flex-direction: row;
+      padding-bottom: 0.5rem;
+
+      &-comment {
+        width: 100%;
+      }
       &-wrapper {
         display: flex;
-        gap: 1.5rem;
+        width: 100%;
+        gap:1.5rem;
       }
       &-input {
-        padding-right: 28rem;
-        height: 3rem;
+        height: 2.5rem;
+        width: 100%;
       }
     }
-
-    ::placeholder {
-      inline-size: 8rem;
-    }
-
-    &__button-wrapper {
-      width: 100%;
-    }
-
+    
     &__button-submit {
+      justify-content: flex-end;
+      max-width: 9.375rem;
       margin-top: 1.5rem;
       padding-left: 2rem;
-      width: 100%;
+      height: 2.5rem;
     }
 
     &__fans {
@@ -301,7 +309,7 @@
       padding-right: 0;
 
       &-caption {
-        padding: 0;
+        padding: 0 1rem 0 0;
       }
 
       &-wrapper {
@@ -315,7 +323,7 @@
 
       &-description {
         padding-right: 1rem;
-        font-size: 16px;
+        font-size: 1rem;
       }
     }
   }
@@ -327,13 +335,10 @@
 
     &__form {
       border-bottom: none;
-
-      &-wrapper {
-        padding-right: 1rem;
-      }
+      padding-right: 1rem;
 
       &-input {
-        padding-right: 33rem;
+        width: 32.5rem;
       }
     }
 

@@ -1,36 +1,34 @@
-import "./app.scss";
+// import "./app.scss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
-import HeroVideo from "./components/heroVideo/HeroVideo";
-import Comments from "./components/comments/Comments";
-import SideBar from "./components/side-bar/SideBar";
-import { useState } from "react";
-import getVideoDetails, { getVideos } from "./utils/utils.js";
+import HomePage from "./pages/HomePage/HomePage";
+import UploadsPage from "./pages/UploadsPage/UploadsPage";
+import SuccessPage from "./pages/SuccessPage/SuccessPage";
 
 const App = () => {
-  // Function to define current and default state of videos
-  const [vidId, setVidId] = useState("84e96018-4022-434e-80bf-000ce4cd12b8");
-
-  // Function to get only the specified video so it doesnt show on side bar
-  // State will be passed as a prop to SideBar (component)
-  // SideBar (component) will render it (the prop-state-video) through HTML tags
-  const [videos, setVideos] = useState(getVideos(vidId));
-
-  const [videoDetails, setVideoDetails] = useState(getVideoDetails(vidId));
-
-  const handleClick = (clickEvent, videoIdClickedOn) => {
-    setVidId(videoIdClickedOn);
-    setVideos(getVideos(videoIdClickedOn));
-    setVideoDetails(getVideoDetails(videoIdClickedOn));
-  };
-
   return (
-    <div className="app">
-      <Header />
-      <HeroVideo video={videoDetails} />
-      <section className="app__container">
-        <Comments video={videoDetails} />
-        <SideBar videos={videos} onClick={handleClick} />
-      </section>
+    <div className="app_wraper">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          {/* The Home/Video Player Page for displaying the details of a video. */}
+          <Route path="/" element={<HomePage />} />
+
+          {/* The Video Upload Page. */}
+          {/* Clicking on the “Upload” button must link to the Video Upload Page. */}
+          <Route path="/uploads" element={<UploadsPage />} />
+
+          {/* Clicking on a video in the “Next Video” list must go to the Video
+          Details Page for the selected video via routing and display all the
+          information for the video such as (likes, views, author, comments,
+          etc). */}
+          <Route path="/videos/:videoId" element={<HomePage />} />
+          <Route path="/upload-successful" element={<SuccessPage />} />
+
+          {/* Redirect user to home page if they go to a rout that doesn't exist  */}
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };

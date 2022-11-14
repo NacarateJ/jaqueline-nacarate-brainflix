@@ -5,19 +5,23 @@ import Image from "../../assets/images/Mohan-muruge.jpg";
 import { formatDistance } from "date-fns";
 
 const Comments = ({ video }) => {
+  const { title, channel, description, views, likes, timestamp, comments } =
+    video;
+
   return (
     <div className="hero__container">
       <section className="hero__information">
-        <h1 className="hero__information-caption">{video.title}</h1>
-
+        <h1 className="hero__information-caption">{title}</h1>
         <div className="hero__information-wrapper">
           <div className="hero__information-left">
-            <p className="hero__information-channel"> By {video.channel}</p>
-            <p className="hero__information-timestamp">
-              {formatDistance(new Date(video.timestamp), new Date(), {
-                addSuffix: true,
-              })}
-            </p>
+            <p className="hero__information-channel">{channel}</p>
+            {timestamp && (
+              <p className="hero__information-timestamp">
+                {formatDistance(new Date(timestamp), new Date(), {
+                  addSuffix: true,
+                })}
+              </p>
+            )}
           </div>
 
           <div className="hero__information-right">
@@ -27,7 +31,7 @@ const Comments = ({ video }) => {
                 src={Views}
                 alt="gray eye icon"
               ></img>
-              <p className="hero__information-numbers">{video.views}</p>
+              <p className="hero__information-numbers">{views}</p>
             </div>
 
             <div className="hero__information-container">
@@ -36,18 +40,18 @@ const Comments = ({ video }) => {
                 src={Likes}
                 alt="gray heart icon"
               ></img>
-              <p className="hero__information-numbers">{video.likes}</p>
+              <p className="hero__information-numbers">{likes}</p>
             </div>
           </div>
         </div>
 
         <div className="hero__information-description">
-          <p>{video.description}</p>
+          <p>{description}</p>
         </div>
       </section>
 
       <section className="comments">
-        <p className="comments__number">{video.comments.length} Comments</p>
+        <p className="comments__number">{comments?.length} Comments</p>
         <form autoComplete="off" className="comments__form">
           <div>
             <img
@@ -74,28 +78,26 @@ const Comments = ({ video }) => {
               <small></small>
             </div>
 
-            <div className="comments__button-wrapper">
-              <button className="comments__button-submit" type="submit">
-                COMMENT
-              </button>
-            </div>
+            <button className="comments__button-submit" type="submit">
+              COMMENT
+            </button>
           </div>
         </form>
 
-        {video.comments.map((comment) => (
-          <div className="comments__fans-wrapper" key={comment.id}>
+        {comments?.map((comment) => (
+          <div className="comments__fans-wrapper" key={comment?.id}>
             <div className="comments__fans">
               <div className="comments__avatar"></div>
               <div className="comments__info">
                 <div className="comments__info-wrapper">
-                  <p className="comments__info-name">{comment.name}</p>
+                  <p className="comments__info-name">{comment?.name}</p>
                   <p className="comments__info-timestamp">
-                    {formatDistance(new Date(comment.timestamp), new Date(), {
+                    {formatDistance(new Date(comment?.timestamp), new Date(), {
                       addSuffix: true,
                     })}
                   </p>
                 </div>
-                <p className="comments__info-text">{comment.comment}</p>
+                <p className="comments__info-text">{comment?.comment}</p>
               </div>
             </div>
           </div>

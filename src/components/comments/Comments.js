@@ -4,7 +4,6 @@ import Likes from "../../assets/icons/likes.svg";
 import Image from "../../assets/images/Mohan-muruge.jpg";
 import { formatDistance } from "date-fns";
 
-
 const Comments = ({ video }) => {
   const { title, channel, description, views, likes, timestamp, comments } =
     video;
@@ -13,15 +12,16 @@ const Comments = ({ video }) => {
     <div className="hero__container">
       <section className="hero__information">
         <h1 className="hero__information-caption">{title}</h1>
-
         <div className="hero__information-wrapper">
           <div className="hero__information-left">
             <p className="hero__information-channel">{channel}</p>
-            <p className="hero__information-timestamp">{timestamp}
-              {/* {formatDistance(new Date(timestamp), new Date(), {
-                addSuffix: true,
-              })} */}
-            </p>
+            {timestamp && (
+              <p className="hero__information-timestamp">
+                {formatDistance(new Date(timestamp), new Date(), {
+                  addSuffix: true,
+                })}
+              </p>
+            )}
           </div>
 
           <div className="hero__information-right">
@@ -78,11 +78,9 @@ const Comments = ({ video }) => {
               <small></small>
             </div>
 
-            <div className="comments__button-wrapper">
-              <button className="comments__button-submit" type="submit">
-                COMMENT
-              </button>
-            </div>
+            <button className="comments__button-submit" type="submit">
+              COMMENT
+            </button>
           </div>
         </form>
 

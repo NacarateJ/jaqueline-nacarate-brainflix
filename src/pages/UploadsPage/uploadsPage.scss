@@ -8,8 +8,8 @@
   &__title {
     color: $brain-flix-black;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 1.5rem;
+    line-height: 2rem;
     border-top: 1px solid $mercury;
     margin: 0 -1rem;
     padding: 1.5rem 0 1.5rem 1rem;
@@ -17,6 +17,7 @@
 
   .video {
     &__title {
+      font-size: 0.75rem;
       color: $silver;
       margin-top: 0;
       margin-bottom: 0.5rem;
@@ -24,7 +25,7 @@
 
     &__poster {
       background-color: $mercury;
-      border-radius: 4px;
+      border-radius: 0.25rem;
       width: 100%;
       object-fit: cover;
 
@@ -40,6 +41,7 @@
     &__video,
     &__description {
       &-label {
+        font-size: 0.75rem;
         color: $silver;
       }
     }
@@ -49,11 +51,11 @@
       &-input {
         background-color: $alabaster;
         width: 100%;
-        padding: 12px;
+        padding: 0.75rem;
         border: 1px solid $mercury;
-        border-radius: 4px;
+        border-radius: 0.25rem;
         outline: none;
-        margin-top: 4px;
+        margin-top: 0.25rem;
         margin-bottom: 1rem;
         &:active {
           border: 2px solid $brain-flix-blue;
@@ -64,38 +66,43 @@
         font-family: "Avenir Next";
       }
     }
+
+    &__video-input {
+      height: 3rem;
+    }
   }
 
   .button {
+    &__publish,
+    &__cancel {
+      font-size: 0.75rem;
+      font-family: "Avenir Next";
+      border: none;
+      border-radius: 0.25rem;
+      width: 100%;
+      height: 3rem;
+    }
+
     &__publish {
       background: url(../../assets/icons/publish.svg);
       background-repeat: no-repeat;
       background-position-y: center;
       background-position-x: 1rem;
       background-size: 1.5rem;
-      color: $white;
-      font-size: 1rem;
-      font-family: "Avenir Next";
       background-color: $brain-flix-blue;
-      border: none;
-      border-radius: 4px;
-      width: 100%;
-      height: 3rem;
+      color: $white;
       &:hover {
         background-color: $brain-flix-dark-blue;
       }
     }
 
     &__cancel {
-      color: $brain-flix-blue;
-      font-size: 1rem;
-      font-family: "Avenir Next";
       background-color: $white;
-      border: none;
-      border-radius: 4px;
-      width: 100%;
-      height: 3rem;
+      color: $brain-flix-blue;
       margin: 2rem 0;
+      &:hover {
+        color: $brain-flix-dark-blue;
+      }
     }
   }
 }
@@ -164,17 +171,19 @@
     }
 
     .video {
-      width: 30%;
+      &__poster {
+       width: 23rem;
+       margin-right: 1.5rem;
+      }
     }
 
     .form {
       padding-top: 1.5rem;
-      width: 70%;
+      width:44rem;
     }
 
     &__wrapper {
       display: flex;
-      // justify-content: space-between;
     }
   }
 }

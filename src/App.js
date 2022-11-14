@@ -5,7 +5,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import UploadsPage from "./pages/UploadsPage/UploadsPage";
 import SuccessPage from "./pages/SuccessPage/SuccessPage";
 
-
 const App = () => {
   return (
     <div className="app_wraper">
@@ -24,7 +23,10 @@ const App = () => {
           information for the video such as (likes, views, author, comments,
           etc). */}
           <Route path="/videos/:videoId" element={<HomePage />} />
-          <Route path="/uploaded" element={<SuccessPage />} />
+          <Route path="/upload-successful" element={<SuccessPage />} />
+
+          {/* Redirect user to home page if they go to a rout that doesn't exist  */}
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </div>

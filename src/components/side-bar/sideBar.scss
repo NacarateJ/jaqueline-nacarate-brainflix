@@ -7,6 +7,7 @@
 
   &__caption {
     color: $silver;
+    margin: 1.5rem 0;
   }
 
   &__thumbnails {
@@ -56,13 +57,8 @@
 // Side bar for Tablet
 @include medium {
   .sidebar {
-    // max-width: 23.313rem;
     padding-left: 2rem;
     padding-right: 2rem;
-
-    &__caption {
-      margin: 2rem 0 2rem 0;
-    }
 
     &__thumbnails {
       &-wrapper {

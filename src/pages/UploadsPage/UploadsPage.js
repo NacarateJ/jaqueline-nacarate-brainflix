@@ -55,7 +55,7 @@ const UploadsPage = () => {
 
         <div className="button">
           <div className="button__wrapper-publish">
-            <Link to="/uploaded">
+            <Link to="/upload-successful">
               <button className="button__publish" type="file">
                 PUBLISH
               </button>

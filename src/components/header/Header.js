@@ -1,7 +1,6 @@
 import "./header.scss";
 import React from "react";
 import Logo from "../../assets/logo/BrainFlix.svg";
-// import Image from "../../assets/images/Mohan-muruge.jpg";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -32,7 +31,6 @@ const Header = () => {
       </div>
 
       <div className="header__navigation-right-medium">
-        {/* <div className="header__navigation-right-wrapper"> */}
           <input
             className="header__search"
             type="search"
@@ -44,7 +42,6 @@ const Header = () => {
             UPLOAD
           </button>
         </Link>
-        {/* </div> */}
       </div>
     </header>
   );

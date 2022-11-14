@@ -2,7 +2,7 @@
 @use "../../styles/partials/colors" as *;
 
 input[type="search"] {
-  padding-left: 40px;
+  padding-left: 2.5rem;
 }
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
@@ -25,7 +25,7 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 
   &__company-logo {
-    min-height: 30px;
+    min-height: 1.875rem;
   }
 
   &__navigation {
@@ -47,8 +47,8 @@ input[type="search"]::-webkit-search-results-decoration {
       background-image: url(../../assets/images/Mohan-muruge.jpg);
       background-size: cover;
       border-radius: 50%;
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 3rem;
+      height: 3rem;
       flex-shrink: 0;
     }
   }
@@ -60,8 +60,8 @@ input[type="search"]::-webkit-search-results-decoration {
     background-position-x: 1rem;
     background-size: 1rem;
     width: 100%;
-    height: 2.5rem;
-    border-radius: 4px;
+    height: 3rem;
+    border-radius: .25rem;
     outline: none;
     border: 1px solid $mercury;
   }
@@ -78,13 +78,13 @@ input[type="search"]::-webkit-search-results-decoration {
     background-position-x: 1rem;
     background-size: 1.5rem;
     color: $white;
-    font-size: 1rem;
+    font-size: .75rem;
     font-family: "Avenir Next";
     background-color: $brain-flix-blue;
     border: none;
-    border-radius: 4px;
+    border-radius: .25rem;
     width: 100%;
-    height: 2.5rem;
+    height: 3rem;
     margin-top: 1rem;
     &:hover {
       background-color: $brain-flix-dark-blue;
@@ -105,7 +105,7 @@ input[type="search"]::-webkit-search-results-decoration {
         &-medium {
           width: 70%;
           display: flex;
-          gap: 2rem;
+          gap: 1rem;
         }
 
       }
@@ -113,8 +113,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
     &__avatar {
       &-container {
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
         order: 3;
       }
     }
@@ -128,22 +128,18 @@ input[type="search"]::-webkit-search-results-decoration {
     
     &__company-logo {
       padding-top: 0.4rem;
-      min-height: 25px;
+      min-height: 1.5625rem;
     }
 
     &__search {
-      padding: 0 5.5rem;
-      // margin-right: 1rem;
-      // width: 100%;
-      height: 3rem;
+      height: 2.5rem;
     }
 
     &__button {
       background-position-x: 0.5rem;
       width: 9.375rem;
-      height: 3rem;
+      height: 2.5rem;
       margin-top: 0;
-      // margin-left: 2rem;
     }
   }
 }
@@ -153,45 +149,12 @@ input[type="search"]::-webkit-search-results-decoration {
   .header {
     padding: 1rem 6rem;
 
-    &__navigation-right {
-      width: 47%;
+    &__navigation {
+      &-right {
+        &-medium {
+          width: 50%;
+        }
+      }
     }
-
-    //   &__navigation {
-    //   &-right {
-    //     // width: 70%;
-    //     // display: flex;
-    //     // flex-direction: row;
-    //     // position: relative;
-    //   }
-    // }
-
-    // &__avatar {
-    //   right: 0;
-    //   width: 2.6rem;
-    //   height: 2.6rem;
-    // }
-
-    // &__company-logo {
-    //   padding-top: 0.5rem;
-    //   width: 90%;
-    // }
-
-    // &__company-logo {
-    //   padding-top: 0.4rem;
-    //   min-height: 25px;
-    // }
-
-    // &__search {
-    //   width: 100%;
-    //   // margin-right: 5rem;
-    //   height: 40px;
-    // }
-
-    // &__button {
-    //   // margin-left: 1rem;
-    //   width: 9.375rem;
-    //   // height: 40px;
-    // }
   }
 }

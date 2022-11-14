@@ -2,9 +2,6 @@ import "./heroVideo.scss";
 import React from "react";
 
 
-
-
-
 const HeroVideo = ({ video }) => {
 return (
     Object.keys(video).length > 0 && (

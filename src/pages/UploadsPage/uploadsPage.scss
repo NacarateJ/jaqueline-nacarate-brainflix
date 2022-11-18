@@ -119,7 +119,6 @@
     }
 
     &__wrapper {
-      border-bottom: 1px solid $mercury;
       border-top: 1px solid $mercury;
     }
 
@@ -134,10 +133,13 @@
     }
 
     .form {
-      padding-bottom: 0.5rem;
+      &__description-input {
+        margin-bottom: 1.5rem;
+      }
     }
 
     .button {
+      border-top: 1px solid$mercury;
       display: flex;
       justify-content: flex-end;
       gap: 1rem;
@@ -172,14 +174,14 @@
 
     .video {
       &__poster {
-       width: 23rem;
-       margin-right: 1.5rem;
+        width: 23rem;
+        margin-right: 1.5rem;
       }
     }
 
     .form {
       padding-top: 1.5rem;
-      width:44rem;
+      width: 44rem;
     }
 
     &__wrapper {

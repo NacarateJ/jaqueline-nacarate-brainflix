@@ -1,31 +1,43 @@
 import "./uploadsPage.scss";
 import "../../components/header/Header";
 import Image from "../../assets/images/Upload-video-preview.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-
-
+import { Uploader } from "uploader";
+import { UploadButton } from "react-uploader";
 
 const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
 const UploadsPage = () => {
-
   const [videos, setVideos] = useState([]);
+  const [thumbnail, setThumbnail] = useState({Image});
+
+const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const newVideo = {
       title: event.target.videoTitle.value,
       description: event.target.videoDescripition.value,
+      thumbnail: thumbnail,
     };
     axios.post(`${BACK_END}/api/videos`, newVideo).then((response) => {
       setVideos([...videos, response.data]);
     });
     event.target.reset();
+
+    navigate("/upload-successful");
   };
 
- 
+
+
+  // Get production API keys from Upload.io
+  const uploader = Uploader({
+    apiKey: "free",
+  });
+
+
 
   return (
     <>
@@ -35,13 +47,32 @@ const UploadsPage = () => {
           <div className="video">
             <p className="video__title">VIDEO THUMBNAIL</p>
             <div className="video__poster-wrapper">
-              {/* <img
+              <img
                 className="video__poster"
-                src={Image}
-                alt="View of a blue bike and it's speedometer from the top by the rider"
-              ></img> */}
+                src={thumbnail.Image ? thumbnail.Image : thumbnail}
+                alt="View of a blue bike and it's speedometer from the top by the rider or Thumbnail uploaded by the user"
+              ></img>
+              <div className="button__select-mt-wrapper">
+                <UploadButton
+                  uploader={uploader} // Required.
+                  options={{ multi: true }} // Optional.
+                  onComplete={(files) => {
+                    // Optional.
+                    if (files.length === 0) {
+                      console.log("No files selected.");
+                    } else {
+                      setThumbnail(files[0].fileUrl);
+                    }
+                  }}
+                >
+                  {({ onClick }) => (
+                    <button className="button__select-mt" onClick={onClick}>
+                      SELECT YOUR THUMBNAIL
+                    </button>
+                  )}
+                </UploadButton>
+              </div>
             </div>
-          
           </div>
 
           <form onSubmit={handleSubmit} autoComplete="off" className="form">
@@ -76,13 +107,29 @@ const UploadsPage = () => {
             </div>
 
             <div className="button">
-              <div className="button__wrapper-publish">
-                {/* <Link to="/upload-successful"> */}
-                <button
-                  // onSubmit={handleSubmit}
-                  className="button__publish"
-                  type="submit"
+              {/* <div className="button__select-wrapper">
+                <UploadButton
+                  uploader={uploader} // Required.
+                  options={{ multi: true }} // Optional.
+                  onComplete={(files) => {
+                    // Optional.
+                    if (files.length === 0) {
+                      console.log("No files selected.");
+                    } else {
+                      setThumbnail(files[0].fileUrl);
+                    }
+                  }}
                 >
+                  {({ onClick }) => (
+                    <button className="button__select" onClick={onClick}>
+                      SELECT YOUR THUMBNAIL
+                    </button>
+                  )}
+                </UploadButton>
+              </div> */}
+
+              <div className="button__wrapper-publish">
+                <button className="button__publish" type="submit">
                   PUBLISH
                 </button>
                 {/* </Link> */}

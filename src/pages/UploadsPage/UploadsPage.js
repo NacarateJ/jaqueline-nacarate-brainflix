@@ -1,9 +1,50 @@
 import "./uploadsPage.scss";
 import "../../components/header/Header";
 import Image from "../../assets/images/Upload-video-preview.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import { Uploader } from "uploader";
+import { UploadButton } from "react-uploader";
+
+const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
 const UploadsPage = () => {
+  const [videos, setVideos] = useState([]);
+  const [thumbnail, setThumbnail] = useState({ Image });
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (
+      !event.target.videoTitle.value ||
+      !event.target.videoDescripition.value ||
+      !thumbnail
+    ) {
+      alert(
+        "Please add a thumbnail and the information required to publish it"
+      );
+    } else {
+      const newVideo = {
+        title: event.target.videoTitle.value,
+        description: event.target.videoDescripition.value,
+        thumbnail: thumbnail,
+      };
+      axios.post(`${BACK_END}/api/videos`, newVideo).then((response) => {
+        setVideos(...videos, response.data);
+      });
+      event.target.reset();
+
+      navigate("/upload-successful");
+    }
+  };
+
+  // Get production API keys from Upload.io
+  const uploader = Uploader({
+    apiKey: "free",
+  });
+
   return (
     <>
       <section className="upload">
@@ -14,22 +55,41 @@ const UploadsPage = () => {
             <div className="video__poster-wrapper">
               <img
                 className="video__poster"
-                src={Image}
-                alt="View of a blue bike and it's speedometer from the top by the rider"
+                src={thumbnail.Image ? thumbnail.Image : thumbnail}
+                alt="View of a blue bike and it's speedometer from the top by the rider or Thumbnail uploaded by the user"
               ></img>
+              <div className="button__select-mt-wrapper">
+                <UploadButton
+                  uploader={uploader}
+                  options={{ multi: true }}
+                  onComplete={(files) => {
+                    if (files.length === 0) {
+                      console.log("No files selected.");
+                    } else {
+                      setThumbnail(files[0].fileUrl);
+                    }
+                  }}
+                >
+                  {({ onClick }) => (
+                    <button className="button__select-mt" onClick={onClick}>
+                      SELECT YOUR THUMBNAIL
+                    </button>
+                  )}
+                </UploadButton>
+              </div>
             </div>
           </div>
 
-          <form autoComplete="off" className="form">
+          <form onSubmit={handleSubmit} autoComplete="off" className="form">
             <div className="form__video">
               <label className="form__video-label" htmlFor="text">
                 TITLE YOUR VIDEO
               </label>
               <textarea
                 className="form__video-input form__video-input--active"
-                id="text"
+                id="videoTitle"
                 type="text"
-                name="text"
+                name="videoTitle"
                 rows="1"
                 cols="30"
                 placeholder="Add tittle to your video"
@@ -42,31 +102,31 @@ const UploadsPage = () => {
               </label>
               <textarea
                 className="form__description-input form__description-input--active"
-                id="text"
+                id="videoDescripition"
                 type="text"
-                name="text"
+                name="videoDescripition"
                 rows="5"
                 cols="30"
                 placeholder="Add description to your video"
               ></textarea>
             </div>
+
+            <div className="button">
+              <div className="button__wrapper-publish">
+                <button className="button__publish" type="submit">
+                  PUBLISH
+                </button>
+              </div>
+
+              <div className="button__wrapper">
+                <Link to="/">
+                  <button className="button__cancel" type="button">
+                    CANCEL
+                  </button>
+                </Link>
+              </div>
+            </div>
           </form>
-        </div>
-
-        <div className="button">
-          <div className="button__wrapper-publish">
-            <Link to="/upload-successful">
-              <button className="button__publish" type="file">
-                PUBLISH
-              </button>
-            </Link>
-          </div>
-
-          <div className="button__wrapper">
-            <button className="button__cancel" type="button">
-              CANCEL
-            </button>
-          </div>
         </div>
       </section>
     </>

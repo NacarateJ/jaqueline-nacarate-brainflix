@@ -3,20 +3,40 @@ import Views from "../../assets/icons/views.svg";
 import Likes from "../../assets/icons/likes.svg";
 import Image from "../../assets/images/Mohan-muruge.jpg";
 import { formatDistance } from "date-fns";
+import axios from "axios";
 
-const Comments = ({ video }) => {
+const BACK_END = process.env.REACT_APP_BACKEND_URL;
+
+const Comments = ({ video, setVideoDetails }) => {
   const { title, channel, description, views, likes, timestamp, comments } =
     video;
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!event.target.comments.value) {
+      alert("Please add new comment");
+    } else {
+      const newComments = {
+        comment: event.target.comments.value,
+      };
+      axios
+        .post(`${BACK_END}/api/videos/${video.id}/comments`, newComments)
+        .then((response) => {
+          setVideoDetails(response.data);
+        });
+      event.target.reset();
+    }
+  };
+
   return (
-    <div className="hero__container">
-      <section className="hero__information">
-        <h1 className="hero__information-caption">{title}</h1>
-        <div className="hero__information-wrapper">
-          <div className="hero__information-left">
-            <p className="hero__information-channel">{channel}</p>
+    <div className="video__information-container">
+      <section className="video__details">
+        <h1 className="video__details-caption">{title}</h1>
+        <div className="video__details-wrapper">
+          <div className="video__details-left">
+            <p className="video__details-channel">{channel}</p>
             {timestamp && (
-              <p className="hero__information-timestamp">
+              <p className="video__details-timestamp">
                 {formatDistance(new Date(timestamp), new Date(), {
                   addSuffix: true,
                 })}
@@ -24,35 +44,39 @@ const Comments = ({ video }) => {
             )}
           </div>
 
-          <div className="hero__information-right">
-            <div className="hero__information-container">
+          <div className="video__details-right">
+            <div className="video__details-container">
               <img
-                className="hero__information-icon"
+                className="video__details-icon"
                 src={Views}
                 alt="gray eye icon"
               ></img>
-              <p className="hero__information-numbers">{views}</p>
+              <p className="video__details-numbers">{views}</p>
             </div>
 
-            <div className="hero__information-container">
+            <div className="video__details-container">
               <img
-                className="hero__information-icon"
+                className="video__details-icon"
                 src={Likes}
                 alt="gray heart icon"
               ></img>
-              <p className="hero__information-numbers">{likes}</p>
+              <p className="video__details-numbers">{likes}</p>
             </div>
           </div>
         </div>
 
-        <div className="hero__information-description">
+        <div className="video__details-description">
           <p>{description}</p>
         </div>
       </section>
 
       <section className="comments">
         <p className="comments__number">{comments?.length} Comments</p>
-        <form autoComplete="off" className="comments__form">
+        <form
+          onSubmit={handleSubmit}
+          autoComplete="off"
+          className="comments__form"
+        >
           <div>
             <img
               className="comments__img"
@@ -91,11 +115,17 @@ const Comments = ({ video }) => {
               <div className="comments__info">
                 <div className="comments__info-wrapper">
                   <p className="comments__info-name">{comment?.name}</p>
-                  <p className="comments__info-timestamp">
-                    {formatDistance(new Date(comment?.timestamp), new Date(), {
-                      addSuffix: true,
-                    })}
-                  </p>
+                  {comment?.timestamp && (
+                    <p className="comments__info-timestamp">
+                      {formatDistance(
+                        new Date(comment?.timestamp),
+                        new Date(),
+                        {
+                          addSuffix: true,
+                        }
+                      )}
+                    </p>
+                  )}
                 </div>
                 <p className="comments__info-text">{comment?.comment}</p>
               </div>

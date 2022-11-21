@@ -17,5 +17,11 @@ root.render(
 // index.js - will call
 // App.js - will call 3 other files
 //       Header.js
-//       MainContent.js
-//       Footer.js
+//       HomePage.js
+//       UploadsPage.js
+//       SuccessPage.js
+
+// HomePage.js - now call
+//       MainVideo.js
+//       Commnents.js
+//       SideBar.js

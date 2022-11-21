@@ -1,7 +1,10 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
+@use "../../styles/partials/button" as *;
 
 // UploadPage for Mobile
+
+
 .upload {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -28,6 +31,7 @@
       border-radius: 0.25rem;
       width: 100%;
       object-fit: cover;
+      margin-bottom: 1rem;
 
       &-wrapper {
         padding-bottom: 1rem;
@@ -74,26 +78,17 @@
 
   .button {
     &__publish,
-    &__cancel {
-      font-size: 0.75rem;
-      font-family: "Avenir Next";
-      border: none;
-      border-radius: 0.25rem;
-      width: 100%;
-      height: 3rem;
+    &__cancel, &__select-mt {
+      @include btn-theme;
     }
-
+    
     &__publish {
       background: url(../../assets/icons/publish.svg);
-      background-repeat: no-repeat;
-      background-position-y: center;
-      background-position-x: 1rem;
-      background-size: 1.5rem;
-      background-color: $brain-flix-blue;
-      color: $white;
-      &:hover {
-        background-color: $brain-flix-dark-blue;
-      }
+      @include btn-back-ground;
+    }
+
+    &__select-mt {
+       @include btn-back-ground;
     }
 
     &__cancel {
@@ -119,7 +114,6 @@
     }
 
     &__wrapper {
-      border-bottom: 1px solid $mercury;
       border-top: 1px solid $mercury;
     }
 
@@ -134,10 +128,14 @@
     }
 
     .form {
-      padding-bottom: 0.5rem;
+      &__description-input {
+        margin-bottom: 1.5rem;
+      }
     }
 
+
     .button {
+      border-top: 1px solid$mercury;
       display: flex;
       justify-content: flex-end;
       gap: 1rem;
@@ -147,13 +145,18 @@
       }
 
       &__publish,
-      &__cancel {
+      &__cancel  {
         min-width: 9.375rem;
         height: 2.5rem;
         margin-top: 1.5rem;
       }
       &__publish {
         background-position-x: 0.5rem;
+      }
+
+      &__select-mt {
+        height: 2.5rem;
+        width: 50%;
       }
     }
   }
@@ -168,21 +171,34 @@
     &__title {
       margin: 0 -6rem;
       padding-left: 6rem;
+      padding-bottom: 0;
     }
 
     .video {
       &__poster {
-       width: 23rem;
-       margin-right: 1.5rem;
+        max-height: 12.2rem;
+        width: 23rem;
+        margin-right: 1.5rem;
+      }
+    }
+    
+    .button {
+      border-top: none;
+      &__select {
+        &-mt {
+          width: 23rem;
+          margin-top: 2.2rem;
+        }
       }
     }
 
     .form {
       padding-top: 1.5rem;
-      width:44rem;
+      width: 44rem;
     }
 
     &__wrapper {
+      border-top: none;
       display: flex;
     }
   }

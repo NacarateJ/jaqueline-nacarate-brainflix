@@ -2,7 +2,7 @@
 @use "../../styles/partials/colors" as *;
 
 // Hero video for Mobile
-.hero {
+.main {
   &__video {
     background-position: center;
     background-size: cover;
@@ -17,7 +17,7 @@
 
 // Hero video for Tablet
 @include medium {
-  .hero {
+  .main {
     &__video-wrapper {
       padding-left: 2rem;
       padding-right: 2rem;
@@ -34,7 +34,7 @@
 
 // Hero video for Desktop
 @include large {
-  .hero {
+  .main {
     &__video-wrapper {
       padding-left: 9.5rem;
       padding-right: 9.5rem;

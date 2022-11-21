@@ -11,33 +11,39 @@ const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
 const UploadsPage = () => {
   const [videos, setVideos] = useState([]);
-  const [thumbnail, setThumbnail] = useState({Image});
+  const [thumbnail, setThumbnail] = useState({ Image });
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newVideo = {
-      title: event.target.videoTitle.value,
-      description: event.target.videoDescripition.value,
-      thumbnail: thumbnail,
-    };
-    axios.post(`${BACK_END}/api/videos`, newVideo).then((response) => {
-      setVideos([...videos, response.data]);
-    });
-    event.target.reset();
+    if (
+      !event.target.videoTitle.value ||
+      !event.target.videoDescripition.value ||
+      !thumbnail
+    ) {
+      alert(
+        "Please add a thumbnail and the information required to publish it"
+      );
+    } else {
+      const newVideo = {
+        title: event.target.videoTitle.value,
+        description: event.target.videoDescripition.value,
+        thumbnail: thumbnail,
+      };
+      axios.post(`${BACK_END}/api/videos`, newVideo).then((response) => {
+        setVideos(...videos, response.data);
+      });
+      event.target.reset();
 
-    navigate("/upload-successful");
+      navigate("/upload-successful");
+    }
   };
-
-
 
   // Get production API keys from Upload.io
   const uploader = Uploader({
     apiKey: "free",
   });
-
-
 
   return (
     <>
@@ -54,10 +60,9 @@ const navigate = useNavigate();
               ></img>
               <div className="button__select-mt-wrapper">
                 <UploadButton
-                  uploader={uploader} // Required.
-                  options={{ multi: true }} // Optional.
+                  uploader={uploader}
+                  options={{ multi: true }}
                   onComplete={(files) => {
-                    // Optional.
                     if (files.length === 0) {
                       console.log("No files selected.");
                     } else {
@@ -107,32 +112,10 @@ const navigate = useNavigate();
             </div>
 
             <div className="button">
-              {/* <div className="button__select-wrapper">
-                <UploadButton
-                  uploader={uploader} // Required.
-                  options={{ multi: true }} // Optional.
-                  onComplete={(files) => {
-                    // Optional.
-                    if (files.length === 0) {
-                      console.log("No files selected.");
-                    } else {
-                      setThumbnail(files[0].fileUrl);
-                    }
-                  }}
-                >
-                  {({ onClick }) => (
-                    <button className="button__select" onClick={onClick}>
-                      SELECT YOUR THUMBNAIL
-                    </button>
-                  )}
-                </UploadButton>
-              </div> */}
-
               <div className="button__wrapper-publish">
                 <button className="button__publish" type="submit">
                   PUBLISH
                 </button>
-                {/* </Link> */}
               </div>
 
               <div className="button__wrapper">

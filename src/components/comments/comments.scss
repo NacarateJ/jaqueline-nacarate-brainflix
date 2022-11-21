@@ -1,9 +1,10 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
+@use "../../styles/partials/button" as *;
 
 //Hero information section for Mobile
-.hero {
-  &__information {
+.video {
+  &__details {
     padding-left: 1rem;
     padding-right: 1rem;
 
@@ -111,7 +112,6 @@
       padding: 0.75rem;
       border: 1px solid $mercury;
       border-radius: 0.25rem;
-      resize: none;
       outline: none;
       margin-top: 0.25rem;
       margin-bottom: 1rem;
@@ -128,22 +128,8 @@
 
   &__button-submit {
     background: url(../../assets/icons/add_comment.svg);
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: 1rem;
-    background-size: 1.5rem;
-    color: $white;
-    font-size: .75rem;
-    font-family: "Avenir Next";
-    font-size: 0.75rem;
-    background-color: $brain-flix-blue;
-    border: none;
-    border-radius: 0.25rem;
-    width: 100%;
-    height: 3rem;
-    &:hover {
-      background-color: $brain-flix-dark-blue;
-    }
+    @include btn-back-ground;
+    @include btn-theme;
   }
 
   &__fans {
@@ -190,8 +176,8 @@
 
 // Hero information for Tablet
 @include medium {
-  .hero {
-    &__information {
+  .video {
+    &__details {
       padding-left: 2rem;
       padding-right: 2rem;
 
@@ -217,7 +203,7 @@
       }
 
       &-channel {
-        inline-size: 8rem;
+        inline-size: 9rem;
         font-size: 0.875rem;
         line-height: 1.375rem;
       }
@@ -298,13 +284,8 @@
 
 // Hero information for Desktop
 @include large {
-  .hero {
-    &__container {
-      display: flex;
-      flex-direction: column;
-    }
-
-    &__information {
+  .video {
+    &__details {
       padding-left: 6rem;
       padding-right: 0;
 

@@ -1,0 +1,24 @@
+@use "../../styles/partials/colors" as *;
+
+
+@mixin btn-theme {
+      font-size: 0.75rem;
+      font-family: "Avenir Next";
+       text-align: center;
+      border: none;
+      border-radius: 0.25rem;
+      width: 100%;
+      height: 3rem;
+}
+
+@mixin btn-back-ground {
+     background-repeat: no-repeat;
+      background-position-y: center;
+      background-position-x: 1rem;
+      background-size: 1.5rem;
+      background-color: $brain-flix-blue;
+      color: $white;
+      &:hover {
+        background-color: $brain-flix-dark-blue;
+      }
+}

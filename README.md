@@ -11,7 +11,7 @@ The BrainFlix is fullstack app for a fictional mock video streaming platform. Cr
 ## Tech Stack
 * HTML, SASS, JavaScript, React, React Router, Node, Express, API's , Postman and Axios, Upload.io
 
-## Instalation:
+## Installation:
 1. To install and run the project you will need to clone or dowload the Front-end file - [jaqueline-nacarate-brainflix](https://github.com/NacarateJ/jaqueline-nacarate-brainflix), and the Back-end file - [jaqueline-nacarate-brainflix-api](https://github.com/NacarateJ/jaqueline-nacarate-brainflix-api);
 2. Run ```nmp i``` to install all the required packages for the app;
 3. To start the Front-end run the command ```npm start```;

@@ -18,17 +18,10 @@ The BrainFlix is fullstack app for a fictional mock video streaming platform. Cr
 4. To start the Back-end run the command ```npm run server```;
 
 
-
-
-
-
-
-
 ## Demo
 
 <div align="center">
-  
-//video goes here
 
-  
+https://user-images.githubusercontent.com/114256348/212264176-d5d9a1a6-b7a8-4ab6-a9c8-3c5d0a948509.mp4
+
   </div>

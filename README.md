@@ -17,6 +17,12 @@ BrainFlix is a fullstack app for a fictional mock video streaming platform. Crea
 3. To start the Front-end run the command ```npm start```;
 4. To start the Back-end run the command ```npm run server```;
 
+## Environment Variables
+1. Front-end:
+Add the following variables in .env file:
+
+```REACT_APP_API_URL=https://localhost:8080```
+
 
 ## Demo
 

@@ -23,6 +23,14 @@ Add the following variables in .env file:
 
 ```REACT_APP_API_URL=https://localhost:8080```
 
+PORT=8080
+
+
+2. Back-end:
+Add the following variables in .env file:
+
+```PORT = 8080```
+
 
 ## Demo
 
